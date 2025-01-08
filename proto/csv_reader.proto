@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package csvreader;
+
+// define Go package
+option go_package = "grpc-csv-reader/proto;csvreader";
+
+// define gRPC service
+service CSVReaderService {
+    rpc GetCSVData (Empty) returns (stream CSVRow);
+}
+
+// define request and response messages
+message Empty {}
+
+message CSVRow {
+    string column1 = 1;
+    string column2 = 2;
+    string column3 = 3;
+}
